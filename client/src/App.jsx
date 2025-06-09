@@ -1,35 +1,86 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Navigate, Route, Routes } from "react-router";
 
-function App() {
-  const [count, setCount] = useState(0)
+import './App.css';
+
+
+import { Toaster } from "react-hot-toast";
+
+import useAuthUser from "./hooks/useAuthUser.js";
+import Home from "./Pages/Home.jsx";
+import SignUp from "./Pages/SignUp.jsx";
+import Login from "./Pages/Login.jsx";
+import Notifications from "./Pages/Notifications.jsx";
+import Call from "./Pages/Call.jsx";
+import Chat from "./Pages/Chat.jsx";
+import Onboarding from "./Pages/Onboarding.jsx";
+import PageLoader from "./Pages/PageLoader.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import AuthRoute from "./components/AuthRoute.jsx";
+import OnboardRoute from "./components/OnboardRoute.jsx";
+
+const App = () => {
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="h-screen">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <AuthRoute><SignUp /></AuthRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <AuthRoute><Login /></AuthRoute>
+          }
+        />
+        <Route
+          path="/notifications"
+          element={
+            <ProtectedRoute>
+              <Notifications />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/call/:id"
+          element={
+            <ProtectedRoute>
+              <Call />
+            </ProtectedRoute>
+          }
+        />
 
-export default App
+        <Route
+          path="/chat/:id"
+          element={
+            <ProtectedRoute>
+              <Chat />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/onboarding"
+          element={
+            <OnboardRoute>
+              <Onboarding />
+            </OnboardRoute>
+          }
+        />
+      </Routes>
+
+      <Toaster />
+    </div>
+  );
+};
+export default App;
