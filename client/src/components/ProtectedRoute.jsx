@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children }) => {
     if (!authUser) return <Navigate to='/login' />
     if (!authUser.isOnboarded) return <Navigate to='/onboarding' />
 
-    return children
+    return children;
 }
 
 export default ProtectedRoute

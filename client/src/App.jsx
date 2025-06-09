@@ -4,8 +4,6 @@ import './App.css';
 
 
 import { Toaster } from "react-hot-toast";
-
-import useAuthUser from "./hooks/useAuthUser.js";
 import Home from "./Pages/Home.jsx";
 import SignUp from "./Pages/SignUp.jsx";
 import Login from "./Pages/Login.jsx";

@@ -10,7 +10,7 @@ const OnboardRoute = ({ children }) => {
     if (!authUser) return <Navigate to='/login' />
     if (authUser.isOnboarded) return <Navigate to='/' />
 
-    return children
+    return children;
 }
 
 export default OnboardRoute

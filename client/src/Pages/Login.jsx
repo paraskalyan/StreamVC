@@ -22,9 +22,7 @@ const Login = () => {
             data-theme="forest"
         >
             <div className="border border-primary/25 flex flex-col lg:flex-row w-full max-w-5xl mx-auto bg-base-100 rounded-xl shadow-lg overflow-hidden">
-                {/* LOGIN FORM SECTION */}
                 <div className="w-full lg:w-1/2 p-4 sm:p-8 flex flex-col">
-                    {/* LOGO */}
                     <div className="mb-4 flex items-center justify-start gap-2">
                         <ShipWheelIcon className="size-9 text-primary" />
                         <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary  tracking-wider">
@@ -32,7 +30,6 @@ const Login = () => {
                         </span>
                     </div>
 
-                    {/* ERROR MESSAGE DISPLAY */}
                     {error && (
                         <div className="alert alert-error mb-4">
                             <span>{error.response.data.message}</span>
@@ -103,10 +100,8 @@ const Login = () => {
                     </div>
                 </div>
 
-                {/* IMAGE SECTION */}
                 <div className="hidden lg:flex w-full lg:w-1/2 bg-primary/10 items-center justify-center">
                     <div className="max-w-md p-8">
-                        {/* Illustration */}
                         <div className="relative aspect-square max-w-sm mx-auto">
                             <img src="/i.png" alt="Language connection illustration" className="w-full h-full" />
                         </div>

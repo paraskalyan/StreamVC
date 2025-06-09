@@ -9,7 +9,7 @@ const AuthRoute = ({ children }) => {
     if (isLoading) return <PageLoader />
     if (authUser) return <Navigate to={authUser.isOnboarded ? '/' : '/onboarding'} />
 
-    return children
+    return children;
 }
 
 export default AuthRoute
