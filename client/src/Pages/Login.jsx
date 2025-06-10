@@ -13,6 +13,7 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
+        console.log(loginData)
         loginMutation(loginData);
     };
 
@@ -54,7 +55,7 @@ const Login = () => {
                                         <input
                                             type="email"
                                             placeholder="hello@example.com"
-                                            className="input input-bordered w-full"
+                                            className="input input-bordered rounded-full w-full"
                                             value={loginData.email}
                                             onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
                                             required
@@ -68,14 +69,14 @@ const Login = () => {
                                         <input
                                             type="password"
                                             placeholder="••••••••"
-                                            className="input input-bordered w-full"
+                                            className="input input-bordered rounded-full w-full"
                                             value={loginData.password}
                                             onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
                                             required
                                         />
                                     </div>
 
-                                    <button type="submit" className="btn btn-primary w-full" disabled={isPending}>
+                                    <button type="submit" className="btn btn-primary rounded-full w-full" disabled={isPending}>
                                         {isPending ? (
                                             <>
                                                 <span className="loading loading-spinner loading-xs"></span>

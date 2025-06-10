@@ -46,19 +46,6 @@ export const signup = async (req, res) => {
       console.log("Error creating Stream user:", error);
     }
 
-    const token = jwt.sign(
-      { userId: newUser._id },
-      process.env.JWT_SECRET_KEY,
-      {
-        expiresIn: "7d",
-      }
-    );
-
-    res.cookie("access_token", token, {
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-      httpOnly: true, // prevent XSS attacks,
-      sameSite: "strict", // prevent CSRF attacks
-    });
     res.status(201).json({ success: true, user: newUser });
   } catch (error) {
     console.log(error);
