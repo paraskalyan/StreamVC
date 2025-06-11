@@ -15,6 +15,8 @@ import PageLoader from "./Pages/PageLoader.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import AuthRoute from "./components/AuthRoute.jsx";
 import OnboardRoute from "./components/OnboardRoute.jsx";
+import Layout from "./components/Layout.jsx";
+import ChatPage from "./Pages/Chat.jsx";
 
 const App = () => {
 
@@ -25,7 +27,9 @@ const App = () => {
           path="/"
           element={
             <ProtectedRoute>
-              <Home />
+              <Layout showSidebar='true'>
+                <Home />
+              </Layout>
             </ProtectedRoute>
           }
         />
@@ -45,7 +49,10 @@ const App = () => {
           path="/notifications"
           element={
             <ProtectedRoute>
-              <Notifications />
+              <Layout showSidebar={true}>
+
+                <Notifications />
+              </Layout>
             </ProtectedRoute>
           }
         />
@@ -62,7 +69,9 @@ const App = () => {
           path="/chat/:id"
           element={
             <ProtectedRoute>
-              <Chat />
+              <Layout>
+                <ChatPage />
+              </Layout>
             </ProtectedRoute>
           }
         />

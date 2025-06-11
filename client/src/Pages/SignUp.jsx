@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ShipWheelIcon } from "lucide-react";
+import { GlobeIcon, ShipWheelIcon } from "lucide-react";
 import { Link } from "react-router";
 import { signup } from "../lib/api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -41,9 +41,9 @@ const SignUp = () => {
                 <div className="w-full lg:w-1/2 p-4 sm:p-8 flex flex-col">
                     {/* LOGO */}
                     <div className="mb-4 flex items-center justify-start gap-2">
-                        <ShipWheelIcon className="size-9 text-primary" />
-                        <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
-                            Streamify
+                        <GlobeIcon className="size-9 text-primary" />
+                        <span className="text-3xl font-bold  text-primary   tracking-wider">
+                            Langly
                         </span>
                     </div>
 
@@ -152,7 +152,7 @@ const SignUp = () => {
                     <div className="max-w-md p-8">
                         {/* Illustration */}
                         <div className="relative aspect-square max-w-sm mx-auto">
-                            <img src="/i.png" alt="Language connection illustration" className="w-full h-full" />
+                            <img src="/bg.png" alt="Language connection illustration" className="w-full h-full" />
                         </div>
 
                         <div className="text-center space-y-3 mt-6">
